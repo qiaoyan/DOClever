@@ -1,3 +1,32 @@
+三键运行方法，1）建立 /root/doclever/data/file /root/doclever/data/img 和 /root/doclever/data/tmp 目录；2）将下面这段代码保存为 docker-compose.yml 文件，放在 /root/doclever/ 目录下；3）在 /root/doclever/ 目录下运行 docker-compose up
+```
+version: "2"
+services:
+  DOClever:
+    #image: lw96/doclever:4.2-ubuntu
+    image: qyliang/doclever:5.3.1
+    restart: always
+    container_name: "DOClever"
+    ports:
+    - 10000:10000
+    - 465:465
+    volumes:
+    - /root/doclever/data/file:/root/DOClever/data/file
+    - /root/doclever/data/img:/root/DOClever/data/img
+    - /root/doclever/data/tmp:/root/DOClever/data/tmp
+    environment:
+    - DB_HOST=mongodb://mongo:27017/DOClever
+    - PORT=10000
+    links:
+    - mongo:mongo
+
+  mongo:
+    image: mongo:3.4
+    restart: always
+    container_name: "mongodb"
+    volumes:
+    - /root/doclever/data/db:/data/db
+```
 ## 什么是DOClever？
 #### DOClever是一个商业化开源产品，完全免费。无论你是前端工程师，还是后端工程师，接口永远都是两者交互的桥梁，所以DOClever专为中小型团队量身打造，旨在解决接口的管理，测试与数据生成，实现真正的一体化解决方案。
 ## DOClever有哪些功能
