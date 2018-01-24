@@ -4,7 +4,7 @@ version: "2"
 services:
   DOClever:
     #image: lw96/doclever:4.2-ubuntu
-    image: qyliang/doclever:5.4.0
+    image: qyliang/doclever:5.4.1
     restart: always
     container_name: "DOClever"
     ports:
