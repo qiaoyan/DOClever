@@ -1,4 +1,4 @@
-三键运行方法，1）建立 /root/doclever/data/file /root/doclever/data/img 和 /root/doclever/data/tmp 目录；2）将下面这段代码保存为 docker-compose.yml 文件，放在 /root/doclever/ 目录下；3）在 /root/doclever/ 目录下运行 docker-compose up
+三键运行方法，1）建立 /root/doclever/data/file /root/doclever/data/img /root/doclever/data/tmp 和 /root/doclever/data/db 目录；2）将下面这段代码保存为 docker-compose.yml 文件，放在 /root/doclever/ 目录下；3）在 /root/doclever/ 目录下运行 docker-compose up
 ```
 version: "2"
 services:
