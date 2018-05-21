@@ -4,7 +4,7 @@ version: "2"
 services:
   DOClever:
     #image: lw96/doclever:4.2-ubuntu
-    image: qyliang/doclever:5.5.1
+    image: qyliang/doclever:5.6
     restart: always
     container_name: "DOClever"
     ports:
@@ -21,7 +21,7 @@ services:
     - mongo:mongo
 
   mongo:
-    image: mongo:3.4
+    image: mongo:3.6
     restart: always
     container_name: "mongodb"
     volumes:
