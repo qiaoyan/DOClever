@@ -1,3 +1,34 @@
+三键运行方法，1）建立 /root/doclever/data/file /root/doclever/data/img /root/doclever/data/tmp 和 /root/doclever/data/db 目录；2）将下面这段代码保存为 docker-compose.yml 文件，放在 /root/doclever/ 目录下；3）在 /root/doclever/ 目录下运行 docker-compose up
+
+version: "2"
+services:
+  DOClever:
+    #image: lw96/doclever:4.2-ubuntu
+    image: qyliang/doclever:5.6
+    restart: always
+    container_name: "DOClever"
+    ports:
+    - 10000:10000
+    - 465:465
+    volumes:
+    - /root/doclever/data/file:/root/DOClever/data/file
+    - /root/doclever/data/img:/root/DOClever/data/img
+    - /root/doclever/data/tmp:/root/DOClever/data/tmp
+    environment:
+    - DB_HOST=mongodb://mongo:27017/DOClever
+    - PORT=10000
+    links:
+    - mongo:mongo
+
+  mongo:
+    image: mongo:3.6
+    restart: always
+    container_name: "mongodb"
+    volumes:
+    - /root/doclever/data/db:/data/db
+----------------------------------
+
+
 # DOClever Docker 镜像
 ---
 
